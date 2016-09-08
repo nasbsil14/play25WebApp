@@ -1,0 +1,27 @@
+@(id: Long, form: Form[User])(implicit messages: Messages)
+@import b3.vertical.fieldConstructor
+
+@dashboard {
+  <h1>Edit computer</h1>
+  @b3.form(routes.DashboardController.userDetail(id)) {
+
+    <fieldset>
+
+      @b3.inputType( "text", form("fullname"), 'class -> "extra_class", '_label -> "FullName", 'placeholder -> "John Doe" )
+      @b3.inputType( "email", form("email"), '_label -> "Email", 'placeholder -> "example@mail.com" )
+      @b3.inputType( "password", form("password"), '_label -> "Password", '_help -> "With at least 8 characters" )
+      @b3.checkbox( form("isAdmin"), '_text -> "isAdmin" )
+
+    </fieldset>
+
+    <div class="actions">
+      <input type="submit" value="Save this computer" class="btn primary"> or
+      <a href="@routes.DashboardController.userList()" class="btn">Cancel</a>
+    </div>
+
+  }
+
+  @b3.form(routes.DashboardController.userList(), 'class -> "topRight") {
+    <input type="submit" value="Delete this computer" class="btn danger">
+  }
+}
