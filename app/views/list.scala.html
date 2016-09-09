@@ -1,8 +1,13 @@
-@(users: Seq[User])
+@(users: Seq[User])(implicit messages: Messages)
+@import b3.vertical.fieldConstructor
 
 @dashboard {
   <h1 class="page-header">Dashboard</h1>
   <h2 class="sub-header">Section title</h2>
+  <a href="@routes.DashboardController.userDetail(Long.MaxValue)">
+    @b3.button('class -> "btn btn-default"){ <span class="glyphicon glyphicon-heart"></span> Insert }
+  </a>
+
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>

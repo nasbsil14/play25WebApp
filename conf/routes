@@ -15,3 +15,6 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 GET     /                           controllers.DashboardController.top
 GET     /user/list                  controllers.DashboardController.userList
 GET     /user/detail/:id            controllers.DashboardController.userDetail(id: Long)
+GET     /user/insert                controllers.DashboardController.insert()
+GET     /user/update/:id            controllers.DashboardController.update(id: Long)
+GET     /user/delete/:id            controllers.DashboardController.delete(id: Long)
